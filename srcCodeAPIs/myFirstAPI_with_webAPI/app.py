@@ -3,7 +3,6 @@ from flask import Flask, jsonify, request
 app = Flask(__name__)
 
 ## EXO1: API GET: renvoyer un helloworld - API end point name: "api/salutation"
-
 @app.route('/api/salutation', methods=['GET'])
 def salutation():
     return jsonify({"message": "Hello World"})
