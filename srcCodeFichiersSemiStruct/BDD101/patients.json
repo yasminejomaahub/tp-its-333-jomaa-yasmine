@@ -1,0 +1,46 @@
+[
+    {
+        "id": 1,
+        "nom": "Dupont",
+        "prenom": "Jean",
+        "age": 30,
+        "poids": 75,
+        "taille": 1.8,
+        "tension": "120/80",
+        "temperature": 36.8,
+        "pouls": 72
+    },
+    {
+        "id": 2,
+        "nom": "Martin",
+        "prenom": "Sophie",
+        "age": 28,
+        "poids": 62,
+        "taille": 1.65,
+        "tension": "110/70",
+        "temperature": 37.0,
+        "pouls": 78
+    },
+    {
+        "id": 3,
+        "nom": "Bernard",
+        "prenom": "Luc",
+        "age": 45,
+        "poids": 88,
+        "taille": 1.75,
+        "tension": "130/85",
+        "temperature": 36.5,
+        "pouls": 80
+    },
+    {
+        "id": 4,
+        "nom": "Leroy",
+        "prenom": "Claire",
+        "age": 35,
+        "poids": 68,
+        "taille": 1.7,
+        "tension": "115/75",
+        "temperature": 36.7,
+        "pouls": 74
+    }
+]
