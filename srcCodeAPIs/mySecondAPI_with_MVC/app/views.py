@@ -2,7 +2,7 @@ from app import app
 from flask import render_template, request, jsonify
 
 ### EXO1 - simple API
-#@app.route('/api/salutation', methods=['GET'])
+@app.route('/api/salutation', methods=['GET'])
 def salutation():
     return jsonify({
         "message": "Hello World"
