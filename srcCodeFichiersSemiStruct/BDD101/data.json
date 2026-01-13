@@ -1,14 +1,19 @@
 {
-   "type": "FeatureCollection", 
-   "features": [ { 
-    "type": "Feature", 
-    "geometry": { 
-      "type": "Point", 
-      "coordinates": [42.0, 21.0] 
-     }, 
-    "properties": { 
-      "prop0": "value0" 
-    } 
-   }] 
-  }
-  
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    78.0,
+                    45.0
+                ]
+            },
+            "properties": {
+                "prop0": "value0",
+                "prop1": "value1"
+            }
+        }
+    ]
+}
