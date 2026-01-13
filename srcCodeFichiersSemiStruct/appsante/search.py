@@ -2,7 +2,7 @@ import json
 
 def search_patient_by_id(patient_id):
     
-    fichier_json = 'BDD101/patients.json'  
+    fichier_json = 'patients.json'  
     with open(fichier_json, 'r') as f:
         patients = json.load(f)
 
