@@ -23,11 +23,10 @@ from flask import render_template, request, jsonify
 #    return render_template('index.html',title='MDM',utilisateur=user)
 
 ### EXO4 - API with parameters retrieved from URL 
-#@app.route('/')
-#def index():
-#    # récupère les paramètres 'name' et 'surname' depuis l'URL
-#    name = request.args.get('name', 'John')      # valeur par défaut 'John'
-#    surname = request.args.get('surname', 'Doe') # valeur par défaut 'Doe'
-#    user = {'name': name, 'surname': surname}
-#
-#    return render_template('index.html', title='MDM', utilisateur=user)
+@app.route('/')
+def index():
+    # récupère les paramètres 'name' et 'surname' depuis l'URL
+    name = request.args.get('name', 'John')      
+    surname = request.args.get('surname', 'Doe') 
+    user = {'name': name, 'surname': surname}
+    return render_template('index.html', title='MDM', utilisateur=user)
