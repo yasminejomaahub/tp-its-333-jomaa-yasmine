@@ -54,6 +54,20 @@ def get_person(id):
         return jsonify({"error": "Personne introuvable"}), 404
     return jsonify(dict(person)), 200
 
+@app.route('/persons/<int:id>', methods=['DELETE'])
+@token_required
+def delete_person(id):
+    conn = get_db()
+    cursor = conn.execute('DELETE FROM persons WHERE id = ?', (id,))
+    conn.commit()
+    deleted = cursor.rowcount
+    conn.close()
+    
+    if deleted == 0:
+        return jsonify({"error": "Personne introuvable"}), 404
+    
+    return jsonify({"message": "Personne supprimée avec succès"}), 200
+
 if __name__ == '__main__':
     init_db()
     app.run(port=5001, debug=True)
