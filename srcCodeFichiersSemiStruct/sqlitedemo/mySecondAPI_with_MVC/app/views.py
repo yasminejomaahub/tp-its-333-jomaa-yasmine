@@ -1,6 +1,7 @@
 from app import app
 from flask import render_template, request, jsonify, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
+from flasgger import Swagger
 from flask_bcrypt import Bcrypt
 import jwt, datetime
 from functools import wraps
@@ -16,6 +17,7 @@ app.config['SECRET_KEY'] = 'jwt_secret_123'
 
 db = SQLAlchemy(app)
 bcrypt = Bcrypt(app)
+swagger = Swagger(app)
 
 # =====================
 # MODELES
@@ -87,6 +89,28 @@ def home():
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
+    """
+    Se connecter (Récupération Token)
+    ---
+    tags:
+      - Authentification
+    parameters:
+      - name: username
+        in: formData
+        type: string
+        required: true
+        description: Nom d'utilisateur (admin)
+      - name: password
+        in: formData
+        type: string
+        required: true
+        description: Mot de passe (admin123)
+    responses:
+      200:
+        description: Connexion réussie, Token généré
+      401:
+        description: Identifiants incorrects
+    """
     if request.method == 'POST':
         username = request.form['username']
         password = request.form['password']
@@ -107,6 +131,38 @@ def login():
 @app.route('/new', methods=['GET', 'POST'])
 @token_required
 def new(current_user=None):
+    """
+    Ajouter un étudiant (Token requis)
+    ---
+    tags:
+      - Etudiants
+    parameters:
+      - name: x-access-token
+        in: header
+        type: string
+        required: true
+        description: Token JWT reçu au login
+      - name: n
+        in: formData
+        type: string
+        required: true
+        description: Nom de l'étudiant
+      - name: add
+        in: formData
+        type: string
+        required: true
+        description: Adresse
+      - name: pin
+        in: formData
+        type: string
+        required: true
+        description: Code PIN
+    responses:
+      200:
+        description: Étudiant créé
+      401:
+        description: Token manquant ou invalide
+    """
     its2 = Groupe.query.filter_by(nom="ITS2").first()
 
     if request.method == 'POST':
